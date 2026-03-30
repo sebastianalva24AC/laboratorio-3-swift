@@ -1,0 +1,19 @@
+var incas: Set<String> = ["Manco Cápac", "Sinchi Roca", "Pachacútec", "Túpac Yupanqui", "Huayna Cápac"]
+var otrosIncas: Set<String> = ["Atahualpa", "Huáscar", "Túpac Yupanqui"]
+
+let buscar = "Pachacútec"
+
+if incas.contains(buscar) {
+    print("\(buscar) está registrado")
+} else {
+    print("\(buscar) no está registrado")
+}
+
+let unionIncas = incas.union(otrosIncas)
+print("Unión de incas:", unionIncas)
+
+let filtrados = unionIncas.filter {
+    $0.uppercased().contains("YUPANQUI")
+}
+
+print("Incas con YUPANQUI:", filtrados)
