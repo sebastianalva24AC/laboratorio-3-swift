@@ -1,0 +1,47 @@
+import Foundation
+
+var paises = ["Perú", "Brasil", "Argentina", "Chile", "Colombia", "Bolivia"]
+var gdp2025: [Double] = [250.0, 2100.0, 600.0, 350.0, 400.0, 45.0]
+
+if let indexBolivia = paises.firstIndex(of: "Bolivia") {
+    print("GDP de Bolivia 2025: \(gdp2025[indexBolivia]) billones USD")
+}
+
+if let indexPeru = paises.firstIndex(of: "Perú") {
+    gdp2025[indexPeru] = 270.0
+    print("GDP de Perú (2026): \(gdp2025[indexPeru])")
+}
+
+if let indexPeru = paises.firstIndex(of: "Perú") {
+    gdp2025[indexPeru] = 250.0
+    print("GDP de Perú (2025): \(gdp2025[indexPeru])")
+}
+
+let suma = gdp2025.reduce(0, +)
+let promedio = suma / Double(gdp2025.count)
+print("Promedio GDP: \(promedio)")
+
+let promedioReduce = gdp2025.reduce(0, +) / Double(gdp2025.count)
+print("Promedio usando reduce: \(promedioReduce)")
+
+if let maxGDP = gdp2025.max() {
+    print("GDP más alto: \(maxGDP)")
+}
+
+var paisesMayores300: [String] = []
+
+for (index, valor) in gdp2025.enumerated() {
+    if valor > 300 {
+        paisesMayores300.append(paises[index])
+    }
+}
+
+print("Países con GDP > 300: \(paisesMayores300)")
+
+let combinado = zip(paises, gdp2025)
+let ordenado = combinado.sorted { $0.1 > $1.1 }
+
+print("Países ordenados por GDP:")
+for (pais, gdp) in ordenado {
+    print("\(pais): \(gdp)")
+}
